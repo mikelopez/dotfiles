@@ -1,9 +1,3 @@
-" Igor's VIM configuration file
-"
-" get the plugins from http://files.getdropbox.com/u/421955/vimconfigs.tar.gz
-
-" here I put all the colors schemes I like
-
 "set background=dark
 
 "colorscheme inkpot
@@ -17,8 +11,7 @@ colorscheme jellybeans
 set t_Co=256
 if has('gui_running')
   set guifont=Monaco:h11
-  "colorscheme candycode
-  colorscheme candycode
+  "colorscheme jellybeans
 endif
 
 syntax on
@@ -104,8 +97,9 @@ if has("autocmd")
 
   " code indentation
   autocmd FileType ruby setlocal tabstop=4 shiftwidth=4 softtabstop=4
+  autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4
   autocmd FileType fbml setlocal filetype=htmldjango
-  autocmd FileType html setlocal filetype=htmldjango
+  autocmd FileType html setlocal filetype=htmldjango tabstop=2 shiftwidth=2 softtabstop=2
 
   " some extra filetypes
   au BufNewFile,BufRead *.mustache setfiletype mustache
@@ -147,33 +141,10 @@ set nocompatible               " Be iMproved
    set runtimepath+=~/.vim/bundle/neobundle.vim/
  endif
 
- call neobundle#rc(expand('~/.vim/bundle/'))
-
  " Let NeoBundle manage NeoBundle
- NeoBundleFetch 'neobundle.vim'
 
  " Recommended to install
  " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
- NeoBundle 'Shougo/vimproc'
-
- " My Bundles here:
- "
- " Note: You don't set neobundle setting in .gvimrc!
- " Original repos on github
- NeoBundle 'tpope/vim-fugitive'
- NeoBundle 'Lokaltog/vim-easymotion'
- NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
- " vim-scripts repos
- NeoBundle 'L9'
- NeoBundle 'FuzzyFinder'
- NeoBundle 'rails.vim'
- " Non github repos
- NeoBundle 'git://git.wincent.com/command-t.git'
- " Non git repos
- NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
- NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
-
- " ...
 
  filetype plugin indent on     " Required!
  "
@@ -183,4 +154,3 @@ set nocompatible               " Be iMproved
  " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
  " Installation check.
- NeoBundleCheck
