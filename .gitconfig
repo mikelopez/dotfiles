@@ -35,3 +35,12 @@
   pom = push origin master
   ss = status -s
   s = status
+  mm = merge origin/master
+  m = merge
+  rm = rebase origin/master
+  r = rebase
+  fa = fetch --all
+  f = fetch
+  p = pull
+
+
