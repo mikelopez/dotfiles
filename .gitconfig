@@ -33,6 +33,7 @@
   d = diff --color-words
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr by %an)%Creset' --abbrev-commit --date=relative
   pom = push origin master
+  po = push origin
   ss = status -s
   s = status
   mm = merge origin/master
