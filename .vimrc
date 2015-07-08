@@ -7,8 +7,12 @@
 "colorscheme dante
 "colorscheme ir_black
 "colorscheme candycode
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme kalisi
 set t_Co=256
+set background=dark
+
+
 if has('gui_running')
   set guifont=Monaco:h11
   "colorscheme jellybeans
@@ -133,24 +137,37 @@ set shiftwidth=4
 set expandtab
 
 
-
-"NEOBUNDLE SHIT
-set nocompatible               " Be iMproved
+ " Note: Skip initialization for vim-tiny or vim-small.
+ if 0 | endif
 
  if has('vim_starting')
+   if &compatible
+     set nocompatible               " Be iMproved
+   endif
+
+   " Required:
    set runtimepath+=~/.vim/bundle/neobundle.vim/
  endif
 
+ " Required:
+ call neobundle#begin(expand('~/.vim/bundle/'))
+
  " Let NeoBundle manage NeoBundle
+ " Required:
+ NeoBundleFetch 'Shougo/neobundle.vim'
 
- " Recommended to install
- " After install, turn shell ~/.vim/bundle/vimproc, (n,g)make -f your_machines_makefile
+ " My Bundles here:
+ NeoBundle 'https://github.com/easymotion/vim-easymotion'
+ NeoBundle 'https://github.com/reedes/vim-colors-pencil'
+ NeoBundle 'https://github.com/bling/vim-airline'
+ NeoBundle 'https://github.com/kien/ctrlp.vim.git'
+ NeoBundle 'https://github.com/freeo/vim-kalisi'
 
- filetype plugin indent on     " Required!
- "
- " Brief help
- " :NeoBundleList          - list configured bundles
- " :NeoBundleInstall(!)    - install(update) bundles
- " :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+ call neobundle#end()
 
- " Installation check.
+ " Required:
+ filetype plugin indent on
+
+ " If there are uninstalled bundles found on startup,
+ " this will conveniently prompt you to install them.
+ NeoBundleCheck
